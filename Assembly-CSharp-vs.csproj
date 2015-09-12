@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{15119936-914E-F0E2-E125-55D44C8A908B}</ProjectGuid>
+	<ProjectGuid>{ADB4BA71-228A-1789-B088-40FB6CB99B5D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -46,17 +46,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\BackgroundController.cs" />
      <Compile Include="Assets\Script\EndGameController.cs" />
      <Compile Include="Assets\Script\EnemyController.cs" />
-     <Compile Include="Assets\Script\Fading.cs" />
      <Compile Include="Assets\Script\HighScoreController.cs" />
      <Compile Include="Assets\Script\MainGameContoller.cs" />
-     <Compile Include="Assets\Script\MenuController.cs" />
-     <Compile Include="Assets\Script\PlayerController.cs" />
+     <Compile Include="Assets\Script\MenuBackgroundController.cs" />
      <Compile Include="Assets\Script\RocketController.cs" />
      <Compile Include="Assets\Script\SceneController.cs" />
      <Compile Include="Assets\Script\ScoreController.cs" />
      <Compile Include="Assets\Script\SpawnRocketController.cs" />
+     <Compile Include="Assets\Script\UpgradeSceneController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

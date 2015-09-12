@@ -19,6 +19,7 @@ public class ScoreController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		score = Camera.main.GetComponent<MainGameContoller> ().score;  
+		PlayerPrefs.SetInt ("score" , score); 
 		scoretext.text = " " + score;
 
 	}

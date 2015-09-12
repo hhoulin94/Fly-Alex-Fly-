@@ -14,11 +14,12 @@ public class EndGameController : MonoBehaviour {
 	public GameObject ScoreLabel ; 
 	public GameObject ScoreAtcenter ; 
 	public GameObject HiScoreAtCenter ; 
+	public GameObject TutorialText ; 
 
+	private int timer = 50;  
 	// Use this for initialization
 	void Start () {
-		//ReplayButton.GetComponent<SpriteRenderer> ().enabled = false; 
-		//HomeButton.GetComponent<SpriteRenderer> ().enabled = false; 
+		TutorialText.SetActive (true); 
 		ReplayButton.SetActive(false) ; 
 		HomeButton.SetActive (false); 
 		HiScoreLabel.SetActive (false);
@@ -33,7 +34,18 @@ public class EndGameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		timer--; 
+
+		//Debug.Log (timer);
+
+		if (timer < 0) {
+			TutorialText.SetActive(false) ; 
+			timer = 0 ; 
+		}
+
 		if (Camera.main.GetComponent<MainGameContoller> ().Gameover == true) {
+			TutorialText.SetActive(false) ; 
 
 			ReplayButton.SetActive(true) ; 
 			HomeButton.SetActive(true) ; 

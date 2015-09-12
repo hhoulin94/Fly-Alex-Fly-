@@ -4,6 +4,7 @@ using System.Collections;
 public class SpawnRocketController : MonoBehaviour {
 
 	public GameObject Rocket ; 
+	public GameObject BOOM ; 
 
 	private GameObject FlyingRocket ; 
 	private float spawnTimeControl, currentspawnTimeLeft, spawnTimeTemp, goleft ;
@@ -32,7 +33,8 @@ public class SpawnRocketController : MonoBehaviour {
 		if (currentspawnTimeLeft >= spawnTimeControl) {
 			for (int i = 0; i < MinAmount; i++) {
 				if (i < MinAmount) { 
-					FlyingRocket = (GameObject) Instantiate (Rocket, new Vector3 (1.96f, RandomY , 0), Quaternion.identity); 
+					float RandomY = Random.Range (-1.771f , 0.849f); 
+					FlyingRocket = (GameObject) Instantiate (Rocket, new Vector3 (4.96f, RandomY , 0), Quaternion.identity); 
 				}
 			}
 			spawnTimeTemp = Time.time ; 

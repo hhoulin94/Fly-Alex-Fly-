@@ -15,11 +15,11 @@ public class EnemyController : MonoBehaviour {
 
 		if (Camera.main.GetComponent<MainGameContoller> ().Gameover == false) {
 
-			goleft = Time.deltaTime * 4.00f; 
+			goleft = Time.deltaTime * 8.00f; 
 
 			this.gameObject.transform.Translate (-goleft, 0, 0); 
 	
-			if (this.gameObject.transform.position.x < -2.1f) {
+			if (this.gameObject.transform.position.x < -4.968f) {
 				Destroy (this.gameObject); 
 				Camera.main.GetComponent<MainGameContoller>().score++ ; 
 			}
