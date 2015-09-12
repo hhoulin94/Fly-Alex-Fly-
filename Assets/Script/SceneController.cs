@@ -9,20 +9,30 @@ public class SceneController : MonoBehaviour {
 	public GameObject Player ; 
 
 	private bool PlayerStartMove ; 
-
+	private int TimesPlayed ; 
 	// Use this for initialization
 	void Start () {
 		PlayerStartMove = false; 
 		AnimatedPlayer.GetComponent<SpriteRenderer> ().enabled = false; 
 		Time.timeScale = 1.0f; 
-		PlayerPrefs.SetInt ("Acceleration" , 0 );
-		PlayerPrefs.SetInt ("Speed" , 0 );
-		PlayerPrefs.SetInt ("coin" , 0 );
-		PlayerPrefs.SetInt ("highscore"	, 0 );  
+		//PlayerPrefs.SetInt("Times" , 0) ; 
+		TimesPlayed = PlayerPrefs.GetInt ("Times"); 
+		Debug.Log (TimesPlayed); 
+
+		if (TimesPlayed == 0) {
+			PlayerPrefs.SetInt ("Acceleration", 0);
+			PlayerPrefs.SetInt ("Speed", 0);
+			PlayerPrefs.SetInt ("coin", 0);
+			PlayerPrefs.SetInt ("highscore", 0);
+			TimesPlayed += 1 ; 
+			PlayerPrefs.SetInt("Times" , TimesPlayed) ; 
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		if (PlayerStartMove == true) {
 			AnimatedPlayer.transform.Translate ( Time.deltaTime * 4.00f, 0, 0); 
 		}
