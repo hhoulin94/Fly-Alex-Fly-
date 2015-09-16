@@ -15,7 +15,7 @@ public class MainGameContoller : MonoBehaviour {
 
 	private float spawnTimeControl , FlyUp  , currentspawnTimeLeft , spawnTimeTemp , RandomY , goingRight;
 	private bool GoDown , countcoin; 
-	private int MinAmount ,timer , acceleration , speed ; 
+	private int MinAmount ,timer , acceleration , speed , DeAcceleration ; 
 	private GameObject FlyingObstacle , FlyingRocket; 
 	private int coin ; 
 	// Use this for initialization
@@ -32,7 +32,7 @@ public class MainGameContoller : MonoBehaviour {
 
 		acceleration = PlayerPrefs.GetInt ("Acceleration");
 		speed = PlayerPrefs.GetInt ("Speed");
-	
+		DeAcceleration = PlayerPrefs.GetInt ("DeAcceleration");
 
 		//Debug.Log (acceleration);
 		//Debug.Log (speed); 
@@ -78,7 +78,6 @@ public class MainGameContoller : MonoBehaviour {
 		if (countcoin == true) {
 			coin = PlayerPrefs.GetInt("coin") ; 
 			coin = score + coin ;
-			Debug.Log (coin) ; 
 			PlayerPrefs.SetInt ("coin" , coin);  
 			countcoin = false ; 
 		}
@@ -97,18 +96,24 @@ public class MainGameContoller : MonoBehaviour {
 		if (Input.GetMouseButtonUp (0)) {
 			GoDown = true ;  
 			//acceleration
-			FlyUp = 0.00f + (acceleration) ;
-			Debug.Log (FlyUp) ; 
+			FlyUp = 0.00f ; 
 		}
 		
 		if (GoDown == false) {
-			Player.transform.Translate(0 , FlyUp * Time.deltaTime , 0 ) ; 
+			Player.transform.Translate(0 ,  FlyUp * Time.deltaTime , 0 ) ; 
 		} else {
-			Player.transform.Translate(0 , -0.05f , 0  ) ; 
+			float goingdown = 0.05f + (DeAcceleration/100) ;
+			Debug.Log (goingdown) ; 
+			if(goingdown > -0.09f){
+				Player.transform.Translate(0 , -0.09f , 0  ) ;
+			}else{
+				Player.transform.Translate(0 , -goingdown , 0) ; 
+			}
+			 
 		}
 		
-		if (FlyUp < 3.0f) {
-			FlyUp = FlyUp + 0.5f; 
+		if (FlyUp < 4.0f + (acceleration/100)) {
+			FlyUp = FlyUp + 0.5f + (acceleration/100) ; 
 		} else {
 			FlyUp = 3.0f ; 
 		}

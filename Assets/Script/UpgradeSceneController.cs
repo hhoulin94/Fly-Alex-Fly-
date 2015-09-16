@@ -7,12 +7,13 @@ public class UpgradeSceneController : MonoBehaviour {
 	public Text speedText ; 
 	public Text CoinText ; 
 	public Text AccelerationText ; 
+	public Text DeAccelText ; 
 
 	private int coin ;
 
-	private int SpeedScore , AccelerationScore ;
-	private int Speed , acceleration ; 
-	private bool SpeedIncrease , AccelerationIncrease; 
+	private int SpeedScore , AccelerationScore , DeAccelScore ;
+	private int Speed , acceleration , DeAcceleration ; 
+	private bool SpeedIncrease , AccelerationIncrease , DeaccelerationIncrease; 
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,7 @@ public class UpgradeSceneController : MonoBehaviour {
 		coin = PlayerPrefs.GetInt("coin"); 
 		Speed = PlayerPrefs.GetInt ("Speed"); 
 		acceleration = PlayerPrefs.GetInt ("Acceleration"); 
+		DeAcceleration = PlayerPrefs.GetInt ("DeAcceleration"); 
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,7 @@ public class UpgradeSceneController : MonoBehaviour {
 		CoinText.text = " " + coin;
 		speedText.text = " " + Speed ;
 		AccelerationText.text = " " + acceleration ; 
+		DeAccelText.text = " " + DeAcceleration; 
 
 		if (SpeedIncrease == true) {
 			Speed = Speed + 1 ;  
@@ -45,6 +48,15 @@ public class UpgradeSceneController : MonoBehaviour {
 			PlayerPrefs.SetInt("Acceleration" , acceleration) ;
 			PlayerPrefs.SetInt ("coin" , coin); 
 		}
+
+		if (DeaccelerationIncrease == true) {
+			DeAcceleration = DeAcceleration + 1 ; 
+			DeaccelerationIncrease = false ;  
+			PlayerPrefs.SetInt("DeAcceleration", DeAcceleration) ;
+			PlayerPrefs.SetInt ("coin" , coin); 
+		}
+
+
 	}
 
 	public void Home(){
@@ -70,6 +82,16 @@ public class UpgradeSceneController : MonoBehaviour {
 		if (coin >= 100) {
 			coin = coin - 100; 
 			SpeedIncrease = true ; 
+		} else {
+			Debug.Log ("nothing happen") ; 
+		}
+	}
+
+	public void ClickPlusDeAccel(){
+		
+		if (coin >= 100) {
+			coin = coin - 100; 
+			DeaccelerationIncrease = true ; 
 		} else {
 			Debug.Log ("nothing happen") ; 
 		}

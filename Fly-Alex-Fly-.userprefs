@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\SceneController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\MainGameContoller.cs">
     <Files>
-      <File FileName="Assets\Script\SceneController.cs" Line="18" Column="5" />
-      <File FileName="Assets\Script\UpgradeSceneController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\MainGameContoller.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\UpgradeSceneController.cs" Line="27" Column="56" />
+      <File FileName="Assets\Script\MainGameContoller.cs" Line="81" Column="41" />
+      <File FileName="Assets\Script\SceneController.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\MenuBackgroundController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
