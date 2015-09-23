@@ -70,6 +70,7 @@ public class MainGameContoller : MonoBehaviour {
 
 
 		if (Gameover == true) { 
+			Handheld.Vibrate() ; 
 			DeadPlayerAnimation.gameObject.transform.position = new Vector2 (Player.gameObject.transform.position.x, Player.gameObject.transform.position.y);
 			Player.GetComponent<SpriteRenderer> ().color = new Color (1, 1, 1, 0); 
 		}
